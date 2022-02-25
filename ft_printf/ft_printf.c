@@ -6,12 +6,12 @@
 /*   By: iyapar <iyapar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 16:54:18 by iyapar            #+#    #+#             */
-/*   Updated: 2022/02/25 16:07:05 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/02/23 16:54:19 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "limits.h"
+
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -63,17 +63,9 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			len = len + ft_putchar(str[i]);
+			len += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(args);
 	return (len);
 }
-
-int main()
-{
-	//printf("%d",printf(" stringdir %s\n","merhaba"));
-	printf("%d\n",ft_printf("char karakter %p\n",30));
-}
-
-
