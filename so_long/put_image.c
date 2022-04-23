@@ -6,7 +6,7 @@
 /*   By: iyapar <iyapar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 13:48:40 by iyapar            #+#    #+#             */
-/*   Updated: 2022/04/22 16:51:51 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/04/23 15:22:56 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ void	ft_put_image(int x, int y, t_image image, char type)
 
 void	ft_image_change(t_game *game, t_image image, int x, int y)
 {
-	ft_put_image(game->hero.x + x, game->hero.y + y, image, 'B');
 	ft_put_image(game->hero.x + x, game->hero.y + y, image, '0');
-	ft_put_image(game->hero.x, game->hero.y, image, 'B');
 	ft_put_image(game->hero.x, game->hero.y, image, 'P');
 }
 

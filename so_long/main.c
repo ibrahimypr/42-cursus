@@ -6,7 +6,7 @@
 /*   By: iyapar <iyapar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 13:29:19 by iyapar            #+#    #+#             */
-/*   Updated: 2022/04/22 17:38:44 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/04/23 17:17:28 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,26 @@ int	main(int ac, char *file[])
 	t_game	game;
 
 	ac = 2;
+	if (ft_strnstr(file[1], ".ber", ft_strlen(file[1])) == NULL)
+		return (0);
 	game.map_sizex = ft_get_map_size_x(file[1]);
 	game.map_sizey = ft_get_map_size_y(file[1]);
 	ft_matrix_create(&game, file[1]);
 	if (ft_map_control(&game) == 1)
 	{
 		game.vars.mlx = mlx_init();
-		game.vars.win = mlx_new_window(game.vars.mlx, 1920, 1080, "s");
-		mlx_key_hook(game.vars.win, ft_key_hook, &game);
-		mlx_hook(game.vars.win, ON_DESTROY, 0, ft_key_esc, &game);
-		game.move_count = 0;
-		game.game_over = 1;
-		game.hero.type = 'P';
+		game.vars.win = mlx_new_window(game.vars.mlx, game.map_sizex * 48,
+				game.map_sizey * 46, "SO LONG");
 		game.coin_count = ft_find_coin(file[1]);
 		game.hero.x = ft_get_hero_cord_x(file[1]) * 48;
 		game.hero.y = ft_get_hero_cord_y(file[1]) * 48;
 		game.nx = ft_get_hero_cord_x(file[1]);
 		game.ny = ft_get_hero_cord_y(file[1]);
 		ft_map_create(game, file[1]);
+		mlx_hook(game.vars.win, ON_DESTROY, 0, ft_key_esc, &game);
+		mlx_key_hook(game.vars.win, ft_key_hook, &game);
+		game.move_count = 0;
 		mlx_loop(game.vars.mlx);
 	}
-	else
-		printf("error type:%s", game.error);
+	printf("error type:%s", game.error);
 }

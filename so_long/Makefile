@@ -1,7 +1,6 @@
 
 CC          =   gcc
 MINILIBX    =   minilibx/libmlx.a
-LIBFT		=	include/libft/libft.a
 LFLAGS      =   -framework OpenGL -framework AppKit -L./minilibx -lmlx
 CFLAGS      =   -I./minilibx
 NAME        =   so_long

@@ -6,7 +6,7 @@
 /*   By: iyapar <iyapar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 14:42:26 by iyapar            #+#    #+#             */
-/*   Updated: 2022/04/22 17:36:44 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/04/23 17:16:57 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_key_up(t_game *game)
 				game->move_count += 1;
 				game->hero.y -= 48;
 				ft_image_change(game, image, 0, 48);
-				printf(YELLOW"moved to the left count = %d \n",
+				printf(YELLOW"moved to the up count = %d \n",
 					game->move_count);
 			}
 		}
@@ -57,7 +57,7 @@ void	ft_key_down(t_game *game)
 				game->move_count += 1;
 				game->hero.y += 48;
 				ft_image_change(game, image, 0, -48);
-				printf(GREEN"moved to the left count = %d \n", game->move_count);
+				printf(GREEN"moved to the down count = %d \n", game->move_count);
 			}
 		}
 	}
@@ -82,7 +82,7 @@ void	ft_key_right(t_game *game)
 				game->move_count += 1;
 				game->hero.x += 48;
 				ft_image_change(game, image, -48, 0);
-				printf(BLUE"moved to the left count = %d \n", game->move_count);
+				printf(BLUE"moved to the right count = %d \n", game->move_count);
 			}
 		}
 	}
@@ -115,9 +115,6 @@ void	ft_key_left(t_game *game)
 
 int	ft_key_esc(t_game *game)
 {
-	t_image	image;
-
-	image.vars = game->vars;
 	mlx_destroy_image(game->vars.mlx, game->vars.win);
 	free(game->matris);
 	exit(0);

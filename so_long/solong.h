@@ -6,7 +6,7 @@
 /*   By: iyapar <iyapar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 15:07:50 by iyapar            #+#    #+#             */
-/*   Updated: 2022/04/22 17:35:08 by iyapar           ###   ########.fr       */
+/*   Updated: 2022/04/23 17:04:58 by iyapar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ int		ft_get_hero_cord_x(char *file);
 int		ft_get_hero_cord_y(char *file);
 
 char	*get_next_line(int fd);
+char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 
 void	ft_matrix_create(t_game *game, char *file);
 void	*myfree(void *str);
@@ -141,5 +142,6 @@ void	ft_map_create(t_game game, char *file);
 void	ft_put_map(t_game game, t_put_map pm);
 void	ft_put_image(int x, int y, t_image image, char type);
 void	destroy_win(t_game *game);
+size_t	ft_strlen(const char *c);
 
 #endif
